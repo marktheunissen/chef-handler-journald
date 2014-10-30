@@ -5,19 +5,19 @@ Handler that logs an entry to the systemd journal with the run status, exception
 
 ```json
 {
-  'PRIORITY': '3',
-  'ENVIRONMENT': 'env',
-  'BINDING_ID': 'xyz',
-  'SYSLOG_IDENTIFIER': 'chef',
-  'MESSAGE': 'Chef run failed.',
-  'CHEF_RUN_STATUS': 'failure',
-  'CHEF_EXCEPTION': 'RuntimeError: ruby_block[](line 371) had an error: RuntimeError: Converge failure.',
-  'CHEF_EXCEPTION_CLASS': 'RuntimeError',
-  'SITE_ID': '53647bcf-30ad-46b3-9df9-02934e9f9ec4',
-  'SITE_NAME': 'mysite',
-  'BUILD_URL': 'https://localhost:8090/build12345',
-  'BUILD_NUMBER': '123456',
-  'BUILD_ID': '2014-10-30_11-12-23'
+  "PRIORITY": "3",
+  "ENVIRONMENT": "env",
+  "BINDING_ID": "xyz",
+  "SYSLOG_IDENTIFIER": "chef",
+  "MESSAGE": "Chef run failed.",
+  "CHEF_RUN_STATUS": "failure",
+  "CHEF_EXCEPTION": "RuntimeError: ruby_block[](line 371) had an error: RuntimeError: Converge failure.",
+  "CHEF_EXCEPTION_CLASS": "RuntimeError",
+  "SITE_ID": "xyz",
+  "SITE_NAME": "mysite",
+  "BUILD_URL": "https://localhost:8090/build12345",
+  "BUILD_NUMBER": "123456",
+  "BUILD_ID": "2014-10-30_11-12-23"
 }
 ```
 
@@ -35,7 +35,7 @@ Just include the handler very early (if not first) in your node's run_list:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[syslog_handler]"
+    "recipe[journald-handler]"
   ]
 }
 ```
